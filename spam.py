@@ -12,10 +12,10 @@ ses = requests.Session()
 no = 0
 
 # --- [ CLEAR TERMINAL ] --- #
-if sys.platform.lower() == "win": os.system("cls")
-else: os.system("clear")
 try: os.system("git pull")
 except: pass
+if sys.platform.lower() == "win": os.system("cls")
+else: os.system("clear")
 
 # --- [ UNTUK DELAY ] --- #
 def waktu(min, sc):
